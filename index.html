@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Docsify-Guide</title>
+    <title>xtcal</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="description" content="Description">
     <meta name="viewport"
@@ -12,24 +12,23 @@
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <!-- 默认主题 -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
-</head>
+    <link rel="stylesheet" href="//unpkg.com/docsify/lib/themes/vue.css">
 
 <body>
     <!-- 定义加载时候的动作 -->
     <div id="app">加载中...</div>
     <script>
         window.$docsify = {
-            // 项目名称
-            //name: '学习',
+            name: 'xtcal',
             // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
-            //repo: ,
+            repo: 'https://github.com/xtcal/xtcal.github.io',
             // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
             loadSidebar: true,
             sidebarDisplayLevel: 1,
             alias: {
                 '/.*/_sidebar.md': '/_sidebar.md'
             },
+            logo: '/favicon.jpg',
             // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
             loadNavbar: true,
             // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
@@ -41,6 +40,7 @@
             // 小屏设备下合并导航栏到侧边栏
             mergeNavbar: true,
             auto2top: true,
+            formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}',
             //Latex设置
             latex: {
                 inlineMath: [['$', '$'], ['\\(', '\\)']],
@@ -51,6 +51,8 @@
                 previousText: '上一章节',
                 nextText: '下一章节',
             },
+            // 路由模式 history 模式 hash 模式
+            routerMode: 'history',
             /*搜索相关设置*/
             search: {
                 paths: 'auto',// 注意：仅适用于 paths: 'auto' 模式
@@ -65,7 +67,6 @@
                 hideOtherSidebarContent: false,
                 namespace: 'Docsify-Guide',
             },
-
             count: {
                 countable: true,
                 position: 'top',
@@ -81,7 +82,7 @@
                 repoId: "R_kgDOQCz-zA",
                 category: "Announcements",
                 categoryId: "DIC_kwDOQCz-zM4Cwqv7",
-                mapping: "pathname",
+                mapping: "url",
                 reactionsEnabled: "1",
                 strict: "1",
                 emitMetadata: "0",
@@ -90,6 +91,31 @@
                 lang: "zh-CN",
                 loading: "lazy"
             },
+            plugins: [
+                // function (hook, vm) {
+                //     hook.beforeEach(function (html) {
+                //         var url = 'https://github.com/docsifyjs/docsify/blob/master/docs' + vm.route.file
+                //         var editHtml = '[📝 编辑本页](' + url + ')\n'
+                //         return editHtml
+                //             + '\n --- \n'
+                //             + html
+                //             // + '\n----\n'
+                //             // + '上次更新时间 {docsify-updated} '
+                //             // + editHtml
+                //     })
+                // },
+                // function (hook, vm) {
+                //     var footer = [
+                //         '<hr/>',
+                //         '<footer>',
+                //         '<span>[这是一段尾页]</span>',
+                //         '</footer>'
+                //     ].join('')
+                //     hook.afterEach(function (html) {
+                //         return html + footer
+                //     })
+                // }
+            ]
         }
     </script>
     <!-- MathJax -->
@@ -103,11 +129,12 @@
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
     <!-- 搜索功能支持 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
-
     <!-- code render-->
-    <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-bash.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-python.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-csharp.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@latest/components/prism-lua.js"></script>
+    <!-- 分页导航 -->
     <script src="//cdn.jsdelivr.net/npm/docsify-pagination@latest/dist/docsify-pagination.min.js"></script>
+    <!-- 复制代码 -->
     <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
     <!-- gitalk支持-->
@@ -130,8 +157,7 @@
     <script src="https://unpkg.com/docsify-giscus@1.0.0/dist/docsify-giscus.min.js"></script>
     <!--字数统计-->
     <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
-
-
 </body>
+
 
 </html>
